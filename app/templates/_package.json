@@ -15,7 +15,14 @@
     "dev:firefox": "gulp --watch --vendor=firefox",
     "dev:opera": "gulp --watch --vendor=opera",
     "dev:edge": "gulp --watch --vendor=edge",
-    "lint": "standard"
+    "lint": "standard",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "standard": {
     "globals": [
@@ -50,10 +57,17 @@
     "gulp-tag-version": "1.x.x",
     "gulp-util": "3.x.x",
     "gulp-zip": "4.x.x",
+    "husky": "0.x.x",
+    "lint-staged": "6.x.x",
+    "prettier": "1.x.x",
     "require-dir": "0.x.x",
     "standard": "10.x.x",
     "ts-loader": "^2.x.x",
     "tslint": "^5.x.x",
+    "tslint-config-prettier": "^1.x.x",
+    "tslint-config-standard": "^7.x.x",
+    "tslint-plugin-prettier": "^1.x.x",
+    "typescript": "^2.x.x",
     "vinyl-named": "1.x.x",
     "webpack": "3.x.x",
     "webpack-stream": "4.x.x",
