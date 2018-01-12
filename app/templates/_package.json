@@ -16,23 +16,17 @@
     "dev:opera": "gulp --watch --vendor=opera",
     "dev:edge": "gulp --watch --vendor=edge",
     "lint": "standard",
-<<<<<<< HEAD
-    "precommit": "lint-staged"
-=======
     "precommit": "lint-staged",
     "test": "run-s test:*",
     "test:tsc": "tsc -p ./tsconfig.test.json",
     "test:ava": "ava --verbose",
     "test:removeDist": "rimraf ./test/_dist"
->>>>>>> dev/add-testingtool
   },
   "lint-staged": {
     "*.{ts,tsx}": [
       "tslint --fix",
       "git add"
     ]
-<<<<<<< HEAD
-=======
   },
   "ava": {
     "require": [
@@ -43,7 +37,6 @@
       "./test/helpers/chromeMock.js"
     ],
     "babel": "inherit"
->>>>>>> dev/add-testingtool
   },
   "standard": {
     "globals": [
@@ -80,16 +73,10 @@
     "gulp-tag-version": "1.x.x",
     "gulp-util": "3.x.x",
     "gulp-zip": "4.x.x",
-<<<<<<< HEAD
-    "husky": "0.x.x",
-    "lint-staged": "6.x.x",
-    "prettier": "1.x.x",
-=======
     "husky": "^0.x.x",
     "lint-staged": "^6.x.x",
     "npm-run-all": "^4.x.x",
     "prettier": "^1.x.x",
->>>>>>> dev/add-testingtool
     "require-dir": "0.x.x",
     "rimraf": "^2.x.x",
     "sinon-chrome": "^2.x.x",
