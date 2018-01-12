@@ -15,7 +15,28 @@
     "dev:firefox": "gulp --watch --vendor=firefox",
     "dev:opera": "gulp --watch --vendor=opera",
     "dev:edge": "gulp --watch --vendor=edge",
-    "lint": "standard"
+    "lint": "standard",
+    "precommit": "lint-staged",
+    "test": "run-s test:*",
+    "test:tsc": "tsc -p ./tsconfig.test.json",
+    "test:ava": "ava --verbose",
+    "test:removeDist": "rimraf ./test/_dist"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "tslint --fix",
+      "git add"
+    ]
+  },
+  "ava": {
+    "require": [
+      "ts-node/register",
+      "babel-register",
+      "babel-polyfill",
+      "./test/helpers/browserEnv.js",
+      "./test/helpers/chromeMock.js"
+    ],
+    "babel": "inherit"
   },
   "standard": {
     "globals": [
@@ -25,11 +46,13 @@
   },
   "devDependencies": {
     "@types/chrome": "^0.x.x",
+    "ava": "^0.x.x",
     "babel-cli": "6.x.x",
     "babel-core": "6.x.x",
     "babel-loader": "7.x.x",
     "babel-preset-env": "1.x.x",
     "babili-webpack-plugin": "0.x.x",
+    "browser-env": "^3.x.x",
     "chromereload": "0.x.x",
     "del": "3.x.x",
     "gulp": "3.x.x",
@@ -50,10 +73,21 @@
     "gulp-tag-version": "1.x.x",
     "gulp-util": "3.x.x",
     "gulp-zip": "4.x.x",
+    "husky": "^0.x.x",
+    "lint-staged": "^6.x.x",
+    "npm-run-all": "^4.x.x",
+    "prettier": "^1.x.x",
     "require-dir": "0.x.x",
+    "rimraf": "^2.x.x",
+    "sinon-chrome": "^2.x.x",
     "standard": "10.x.x",
     "ts-loader": "^2.x.x",
+    "ts-node": "^4.x.x",
     "tslint": "^5.x.x",
+    "tslint-config-prettier": "^1.x.x",
+    "tslint-config-standard": "^7.x.x",
+    "tslint-plugin-prettier": "^1.x.x",
+    "typescript": "^2.x.x",
     "vinyl-named": "1.x.x",
     "webpack": "3.x.x",
     "webpack-stream": "4.x.x",
